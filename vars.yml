@@ -2,26 +2,26 @@
 ---
 
 # PVE Template Provisioning Variables
-template_name:  2019DC-tpl
+template_name:  2022STD-template
 pve_storage_id: vm-store
 vm_cores: 2
-vm_sockets: 2
-vm_memory_mb: 2048
-vm_os_type: win10
+vm_sockets: 1
+vm_memory_mb: 2046
+vm_os_type: win11
 # vm_os_type must be valid value per https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines
-drive_size_gb: 50
+drive_size_gb: 80
 start_at_boot: no
-os_iso_location: local:iso/17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1.iso
+os_iso_location: local:iso/WINSERVER2022EVAL.iso
 format: qcow2
 # qcow2 or raw if on lvm
-agent: enabled=0
+agent: enabled=1
 # Enable with: 'enabled=1,fstrim_cloned_disks=1,type=virtio'
 
 # Unattend.xml template variables:
-deploy_image: 'Windows Server 2019 SERVERDATACENTER'
+deploy_image: 'Windows Server 2022 SERVERSTANDARD'
 # Applicable 2019 options for deploy_image: 
 # Windows Server 2019 SERVERDATACENTER, Windows Server 2019 SERVERDATACENTERCORE,
 # Windows Server 2019 SERVERSTANDARD, Windows Server 2019 SERVERSTANDARDCORE
-vm_admin_pass: AnsibleReady!
-vm_time_zone: 'Eastern Standard Time'
-org_name: 'Layer8Sys'
+vm_admin_pass: Rdpbaru123@@
+vm_time_zone: 'SE Asia Standard Time'
+org_name: '0xNetworkVM'
