@@ -1,8 +1,7 @@
 ---
 proxmox:
   hosts:
-    192.168.2.31:
-    192.168.2.32:
+    185.171.88.208:
   vars:
     ansible_user: root
     ansible_password: 
