@@ -137,16 +137,35 @@
                     <Description>Configure Ansible Prep and WinRM</Description>
                     <Order>3</Order>
                 </SynchronousCommand>   
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>powershell -File e:\scripts\win-updates-pass1.ps1</CommandLine>
+                    <Description>Install Get-WindowsUpdate module and Windows Updates Pass 1</Description>
+                    <Order>4</Order>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>powershell Start-Sleep -Seconds 20</CommandLine>
+                    <Description>Insert a pause to prevent update pass 2 from starting just before reboot</Description>
+                    <Order>5</Order>
+                </SynchronousCommand>                    
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>powershell -File e:\scripts\win-updates-pass2.ps1</CommandLine>
+                    <Description>Install Windows Updates Pass 2</Description>
+                    <Order>6</Order>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>powershell Start-Sleep -Seconds 25</CommandLine>
+                    <Description>Insert a pause to prevent possible reboot during sysprep</Description>
+                    <Order>7</Order>
                 </SynchronousCommand>       
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>powershell Start-Sleep -Seconds 30</CommandLine>
                     <Description>One more pause to prevent an early sysprep start</Description>
-                    <Order>4</Order>
+                    <Order>8</Order>
                 </SynchronousCommand>                                                                              
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>c:\windows\system32\sysprep\sysprep /generalize /oobe /shutdown</CommandLine>
                     <Description>Sysprep</Description>
-                    <Order>5</Order>
+                    <Order>10</Order>
                 </SynchronousCommand>                                          
             </FirstLogonCommands>
             <OOBE>
